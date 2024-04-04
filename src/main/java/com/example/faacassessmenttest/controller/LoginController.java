@@ -2,6 +2,7 @@ package com.example.faacassessmenttest.controller;
 
 import com.example.faacassessmenttest.model.User;
 import com.example.faacassessmenttest.repository.UserRepository;
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -42,6 +43,7 @@ public class LoginController implements WebMvcConfigurer {
     }
 
     @GetMapping("/login")
+    @Operation(summary = "Ritorna la login page - GET", description = "Pagina login dell'applicazione")
     public String showLoginPage() {
         log.debug("Login page handler called.");
         // return the name of the view
@@ -49,6 +51,7 @@ public class LoginController implements WebMvcConfigurer {
     }
 
     @PostMapping("/login")
+    @Operation(summary = "Ritorna la login page - POST", description = "Pagina login dell'applicazione")
     public String login(@RequestParam("username") String username,
                         @RequestParam("password") String password,
                         HttpSession session,
